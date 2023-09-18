@@ -11,14 +11,13 @@ namespace ShoeStoreProject.Models
 
         [ForeignKey("Category")]
         public int? CategoryID { get; set; }
-        public int? CategoryName { get; set; }
         public string? Description { get; set; }
         public int? Price { get; set; }
 
         [ForeignKey("Source")]
         public int? SourceID { get; set; }
         public int? ImportPrice { get; set; }
-        public double? Discount { get; set; } = 0;
+        public Decimal? Discount { get; set; } = 0;
         public string? ImageUrl { get; set; }
         public string? Color { get; set; }
         public Boolean? Available { get; set; }

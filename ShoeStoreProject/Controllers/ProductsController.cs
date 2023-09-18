@@ -49,8 +49,8 @@ namespace ShoeStoreProject.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CatogoryID", "CatogoryID");
-            ViewData["SourceID"] = new SelectList(_context.Set<Source>(), "SourceID", "SourceID");
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryName");
+            ViewData["SourceID"] = new SelectList(_context.Set<Source>(), "SourceID", "SourceName");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace ShoeStoreProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PID,ProductName,CategoryID,CatogoryName,Description,Price,SourceID,ImportPrice,Discount,ImageUrl,Color,Available,AvailableSize")] Product product)
+        public async Task<IActionResult> Create([Bind("PID,ProductName,CategoryID,CategoryName,Description,Price,SourceID,ImportPrice,Discount,ImageUrl,Color,Available,AvailableSize")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace ShoeStoreProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CatogoryID", "CatogoryID", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID", product.CategoryID);
             ViewData["SourceID"] = new SelectList(_context.Set<Source>(), "SourceID", "SourceID", product.SourceID);
             return View(product);
         }
@@ -85,7 +85,7 @@ namespace ShoeStoreProject.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CatogoryID", "CatogoryID", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID", product.CategoryID);
             ViewData["SourceID"] = new SelectList(_context.Set<Source>(), "SourceID", "SourceID", product.SourceID);
             return View(product);
         }
@@ -95,7 +95,7 @@ namespace ShoeStoreProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PID,ProductName,CategoryID,CatogoryName,Description,Price,SourceID,ImportPrice,Discount,ImageUrl,Color,Available,AvailableSize")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("PID,ProductName,CategoryID,CategoryName,Description,Price,SourceID,ImportPrice,Discount,ImageUrl,Color,Available,AvailableSize")] Product product)
         {
             if (id != product.PID)
             {
@@ -122,7 +122,7 @@ namespace ShoeStoreProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CatogoryID", "CatogoryID", product.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Set<Category>(), "CategoryID", "CategoryID", product.CategoryID);
             ViewData["SourceID"] = new SelectList(_context.Set<Source>(), "SourceID", "SourceID", product.SourceID);
             return View(product);
         }
