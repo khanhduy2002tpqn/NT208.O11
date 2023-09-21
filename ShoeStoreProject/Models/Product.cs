@@ -21,7 +21,6 @@ namespace ShoeStoreProject.Models
         public string? ImageUrl { get; set; }
         public string? Color { get; set; }
         public Boolean? Available { get; set; }
-        public int? AvailableSize { get; set; }
         public virtual Category? Category { get; set; }
         public virtual Source? Source { get; set; }
 

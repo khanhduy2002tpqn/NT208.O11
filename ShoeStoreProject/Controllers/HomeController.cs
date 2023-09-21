@@ -23,6 +23,11 @@ namespace ShoeStoreProject.Controllers
             return View();
         }
 
+        public IActionResult Guarantee_Contact()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

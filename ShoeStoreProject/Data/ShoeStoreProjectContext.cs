@@ -19,5 +19,9 @@ namespace ShoeStoreProject.Data
         public DbSet<ShoeStoreProject.Models.Category>? Category { get; set; }
 
         public DbSet<ShoeStoreProject.Models.Source>? Source { get; set; }
+
+        public DbSet<ShoeStoreProject.Models.Repo>? Repo { get; set; }
+
+        public DbSet<ShoeStoreProject.Models.ProductRepo>? ProductRepo { get; set; }
     }
 }
